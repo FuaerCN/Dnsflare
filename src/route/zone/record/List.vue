@@ -168,7 +168,10 @@ async function rawLoadPage(page?: PageSettings): Promise<LoadPageResponse<any>> 
     if (records.result && records.resultInfo) {
         return {
             pageDetail: convertPagination(records.resultInfo),
-            data: records.result
+            data: records.result.map(record => ({
+                ...record,
+                zoneId: zoneId.value
+            }))
         }
     }
 
