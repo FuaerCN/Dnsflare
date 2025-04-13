@@ -13,9 +13,7 @@ export const SecurityLevelDisplay: Record<SecurityLevel, string> = {
 }
 
 export type CloudflareSecurityInfo = {
-    result: {
-        value: SecurityLevel
-    }
+    value: SecurityLevel
 }
 
 export async function getSecurityInfo(zoneId: string): Promise<APIResponse<CloudflareSecurityInfo>> {
