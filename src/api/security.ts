@@ -2,10 +2,9 @@ import { useAxios } from '@/utils/requests'
 import { objectToCamelCase, objectToHungarian } from '@/utils/case'
 import { APIResponse } from '.'
 
-export type SecurityLevel = 'off' | 'essentially_off' | 'low' | 'medium' | 'high' | 'under_attack'
+export type SecurityLevel = 'essentially_off' | 'low' | 'medium' | 'high' | 'under_attack'
 
 export const SecurityLevelDisplay: Record<SecurityLevel, string> = {
-    off: '关闭',
     essentially_off: '基本关闭',
     low: '低',
     medium: '中',
@@ -14,7 +13,7 @@ export const SecurityLevelDisplay: Record<SecurityLevel, string> = {
 }
 
 export type CloudflareSecurityInfo = {
-    securityLevel: SecurityLevel
+    value: SecurityLevel
 }
 
 export async function getSecurityInfo(zoneId: string): Promise<APIResponse<CloudflareSecurityInfo>> {
