@@ -9,21 +9,6 @@
             </template>
             
             <el-tabs v-model="activeTab">
-                <el-tab-pane label="证书设置" name="cert">
-                    <div class="setting-section">
-                        <h3>证书供应商</h3>
-                        <div class="current-value">
-                            当前设置: <el-tag type="info">{{CertificateAuthorityDisplay[certOwner]}}</el-tag>
-                        </div>
-                        <div class="setting-control">
-                            <el-select placeholder="选择证书供应商" v-model="newCertOwner">
-                                <el-option v-for="(obj, value) in CertificateAuthorityDisplay" :key="value" :label="obj" :value="value" />
-                            </el-select>
-                            <el-button @click="modifyCertAuthority" type="primary" style="margin-left: 10px">应用更改</el-button>
-                        </div>
-                    </div>
-                </el-tab-pane>
-                
                 <el-tab-pane label="安全设置" name="security">
                     <div class="setting-section">
                         <h3>安全等级</h3>
@@ -44,6 +29,21 @@
                                 show-icon
                                 :closable="false"
                             />
+                        </div>
+                    </div>
+                </el-tab-pane>
+                
+                <el-tab-pane label="证书设置" name="cert">
+                    <div class="setting-section">
+                        <h3>证书供应商</h3>
+                        <div class="current-value">
+                            当前设置: <el-tag type="info">{{CertificateAuthorityDisplay[certOwner]}}</el-tag>
+                        </div>
+                        <div class="setting-control">
+                            <el-select placeholder="选择证书供应商" v-model="newCertOwner">
+                                <el-option v-for="(obj, value) in CertificateAuthorityDisplay" :key="value" :label="obj" :value="value" />
+                            </el-select>
+                            <el-button @click="modifyCertAuthority" type="primary" style="margin-left: 10px">应用更改</el-button>
                         </div>
                     </div>
                 </el-tab-pane>
@@ -80,7 +80,7 @@ const props = defineProps<{
 
 const isLoading = ref(false)
 const mainStyle = ref({})
-const activeTab = ref('cert')
+const activeTab = ref('security')
 
 // 证书相关状态
 const certOwner = ref('')
