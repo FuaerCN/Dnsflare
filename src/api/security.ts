@@ -13,7 +13,7 @@ export const SecurityLevelDisplay: Record<SecurityLevel, string> = {
 }
 
 export type CloudflareSecurityInfo = {
-    value: SecurityLevel
+    securityLevel: SecurityLevel
 }
 
 export async function getSecurityInfo(zoneId: string): Promise<APIResponse<CloudflareSecurityInfo>> {
@@ -38,7 +38,7 @@ export async function updateSecurityLevel(zoneId: string, level: SecurityLevel):
             url: `/zones/${zoneId}/settings/security_level`,
             method: 'patch',
             data: objectToHungarian({
-                value: level
+                securityLevel: level
             })
         })
 
