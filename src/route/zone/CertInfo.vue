@@ -106,8 +106,8 @@ async function loadInfo() {
         // 加载安全设置信息
         const securityInfo = await getSecurityInfo(props.zoneId)
         if (securityInfo.success) {
-            securityLevel.value = securityInfo.result!.securityLevel
-            newSecurityLevel.value = securityInfo.result!.securityLevel
+            securityLevel.value = securityInfo.result!.value
+            newSecurityLevel.value = securityInfo.result!.value
         } else {
             console.error('加载安全设置失败', securityInfo.errors)
         }
